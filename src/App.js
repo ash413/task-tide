@@ -3,7 +3,7 @@ import Home from './components/Home'
 
 const App = () => {
   return (
-    <div>
+    <div className='bg-lime-700'>
       <Home />
     </div>
   )

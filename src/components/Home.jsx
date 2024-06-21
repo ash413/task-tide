@@ -42,12 +42,12 @@ const Home = () => {
     }
 
 
-  return (
-    <div className=''>
-        <div className=''>
-            <h1>TaskTide - a todo app</h1>
+return (
+    <div className='min-h-screen flex flex-col'>
+        <div className='bg-white shadow-md rounded-lg p-6 mt-10 mb-40 ml-10 w-full max-w-md'>
+            <h1 className='text-2xl font-bold'>TaskTide - a todo app</h1>
         </div>
-        <div>
+        <div className=''>
             <div>
                 <form onSubmit={handleAddTask}>
                     <input 
@@ -82,11 +82,10 @@ const Home = () => {
                 ))}
             </div>
         </div>
-        <div>
+        <div className=''>
             <h4>Made by Vaishnavi Kadam - 2024</h4>
         </div>
     </div>
-  )
-}
+)}
 
 export default Home
