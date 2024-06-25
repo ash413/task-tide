@@ -42,7 +42,7 @@ const Home = () => {
     };
 
 return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-100">
+    <div className="min-h-screen flex flex-col items-center justify-between bg-lime-700">
         <div className="bg-white shadow-md rounded-lg p-6 mt-10 mb-10 w-full max-w-md">
             <h1 className="text-2xl font-bold text-center">TaskTide - a todo app</h1>
         </div>
