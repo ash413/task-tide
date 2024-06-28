@@ -108,7 +108,7 @@ return (
                 ))}
             </div>
         </div>
-        <div className="text-center mt-10 mb-4">
+        <div className="text-center mt-10 mb-4 text-white font-semibold">
             <h4>Made by Vaishnavi Kadam - 2024</h4>
         </div>
     </div>
