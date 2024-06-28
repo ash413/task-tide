@@ -42,7 +42,7 @@ const Home = () => {
     };
 
 return (
-    <div className="min-h-screen flex flex-col items-center justify-between bg-lime-700">
+    <div className="min-h-screen flex flex-col items-center justify-between bg-blue-400">
         <div className="bg-white shadow-md rounded-lg p-6 mt-10 mb-10 w-full max-w-md">
             <h1 className="text-2xl font-bold text-center">TaskTide - a todo app</h1>
         </div>
@@ -68,46 +68,47 @@ return (
                         className="p-2 border rounded-md"
                     >
                         <option value="">Select Priority</option>
-                        <option value="high">High</option>
-                        <option value="medium">Medium</option>
-                        <option value="low">Low</option>
+                        <option value="HIGH">High</option>
+                        <option value="MEDIUM">Medium</option>
+                        <option value="LOW">Low</option>
                     </select>
-                    <button type="submit" className="p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+                    <button type="submit" className="p-2 bg-gray-400 text-white rounded-md hover:bg-gray-600">
                         Add Todo
                     </button>
                 </form>
             </div>
             <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
                 {tasks.map((task) => (
-                <div key={task.id} className="flex items-center justify-between p-2 border-b last:border-b-0">
-                    <div className="flex items-center space-x-2">
-                        <input
-                            type="checkbox"
-                            checked={task.completed}
-                            onChange={() => handleToggleComplete(task.id)}
-                            className="h-4 w-4"
-                        />
-                        <span className={`${task.completed ? 'line-through text-gray-500' : ''}`}>
+                    <div key={task.id} className="grid grid-cols-3 gap-4 items-center p-2 border-b last:border-b-0">
+                        <div className="flex items-center space-x-2">
+                            <input
+                                type="checkbox"
+                                checked={task.completed}
+                                onChange={() => handleToggleComplete(task.id)}
+                                className="h-4 w-4"
+                            />
+                            <span className={`${task.completed ? 'line-through text-gray-500' : ''}`}>
                             {task.description}
-                        </span>
-                        {task.dueDate && <span className="text-sm text-gray-500">- Due: {task.dueDate}</span>}
-                        {task.priority && (
-                        <span
-                            className={`text-sm ${task.priority === 'high'? 'text-red-500': task.priority === 'medium'? 'text-yellow-500': 'text-green-500'}`}>
-                            - Priority: {task.priority}
-                        </span>
-                        )}
+                            </span>
+                        </div>
+                        <div className="text-sm text-gray-500">
+                            {task.dueDate && <span>Due: {task.dueDate}</span>}
+                        </div>
+                        <div className="flex items-center justify-end space-x-2">
+                            {task.priority && (
+                                <span className={`text-sm ${task.priority === 'HIGH'? 'text-red-500': task.priority === 'MEDIUM'? 'text-yellow-500': 'text-green-500'}`}>
+                                {task.priority}
+                                </span>
+                            )}
+                            <button onClick={() => handleDeleteTask(task.id)} className="p-1 text-red-500 hover:text-red-700">
+                                Delete
+                            </button>
+                        </div>
                     </div>
-                    <div className="flex items-center space-x-2">
-                        <button onClick={() => handleDeleteTask(task.id)} className="p-1 text-red-500 hover:text-red-700">
-                            Delete
-                        </button>
-                    </div>
-                </div>
                 ))}
             </div>
         </div>
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 mb-4">
             <h4>Made by Vaishnavi Kadam - 2024</h4>
         </div>
     </div>
